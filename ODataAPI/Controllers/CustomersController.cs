@@ -53,6 +53,7 @@ namespace ODataAPI.Controllers
         [Produces("application/json")]
         [ProducesResponseType(typeof(ODataResultEnvelopeCollection<Customer>), Status200OK)]
         [ProducesResponseType(typeof(ODataEnvelope), Status404NotFound)]
+        [ProducesResponseType(typeof(ODataCustomError), Status400BadRequest)]
         public IActionResult RetrieveAll([SwaggerIgnore] ODataQueryOptions<Customer> options)
         {
             return ODataCustomResult.ObtainResult(options, _dbContext.Customers.AsQueryable(), _odataSettings);
