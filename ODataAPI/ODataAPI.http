@@ -1,0 +1,6 @@
+@ODataAPI_HostAddress = https://localhost:7113
+
+GET {{ODataAPI_HostAddress}}/api/customers?$filter=firstName eq 'Orlando'
+Accept: application/json
+
+###
