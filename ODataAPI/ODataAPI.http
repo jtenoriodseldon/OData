@@ -1,6 +1,23 @@
 @ODataAPI_HostAddress = https://localhost:7113
 
-GET {{ODataAPI_HostAddress}}/api/customers?$filter=firstName eq 'Orlando'
+### TOP
+GET {{ODataAPI_HostAddress}}/api/customers?$top=5
 Accept: application/json
 
-###
+### Filter
+GET {{ODataAPI_HostAddress}}/api/customers?$top=5&$filter=firstName%20eq%20'Orlando'
+Accept: application/json
+
+### Order By
+GET {{ODataAPI_HostAddress}}/api/customers?$orderby=lastName
+Accept: application/json
+
+### Select
+GET {{ODataAPI_HostAddress}}/api/customers?$select=customerId,firstName,lastName
+Accept: application/json
+
+### Expand
+GET {{ODataAPI_HostAddress}}/api/customers?$expand=customerAddresses&$filter=customerAddresses/any(i:i%20ne%20null)&$top=5
+Accept: application/json
+
+

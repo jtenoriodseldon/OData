@@ -174,6 +174,7 @@ namespace ODataAPI.Results
                 }
                 catch (InvalidCastException)
                 {
+                    //casting to specific type failed, try to cast to IEnumerable as the projection is not a known type
                     return new OkObjectResult(
                         new ODataResultEnvelopeProjection
                         {
